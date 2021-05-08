@@ -375,21 +375,52 @@ progress {
   font: inherit;
   -webkit-appearance: button;
 }
+.ejemplo-select{
+  box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%);
+  border: 0;
+  transition: box-shadow .15s ease;
+  border-radius: 0.25rem;
+  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 42REM;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #8898aa;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: 0.25rem;
+ 
+    
 
+}
+.ola{
+  width: 55%;
+  display: flex;
+  justify-content: space-around;
+}
 .ejemplo{
   width: 100%;
-  height: 43rem;
+  height: 53rem;
   display: flex;
-  background-color: rgb(163, 163, 163);
+  background-color: rgb(255, 255, 255);
   align-items: center;
   flex-direction: column;
   position: inherit;
-  padding: 32px;
+  padding: 22px;isplay: block;
+  width: 100%;
+ 
 }
-.ejemplo2{
-  width: 50%;
-  height: 50px;
-  background-color: rgb(156, 23, 23);
+.ejemplo2 {
+    width: 70%;
+    height: 4rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
 }
 .ejemplobig{
   width: 50%;
@@ -4062,7 +4093,7 @@ input[type="button"].btn-block {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  width: 100%;
+  width: 42REM;
 }
 
 .input-group>.form-control,
@@ -18754,7 +18785,7 @@ label {
 
 .form-control {
   font-size: 0.875rem;
-  transition: all 0.15s ease;
+  width: 89px;
 }
 
 .form-control:focus::placeholder {
