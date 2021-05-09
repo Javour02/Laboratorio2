@@ -429,6 +429,51 @@ progress {
   width: 100%;
  
 }
+
+.inicio-lab-hemograma{
+  width: 100%;
+  height: 44rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: inherit;
+  padding: 22px;
+  width: 100%;
+ 
+}
+.inicio-lab-lipi{
+  width: 100%;
+  height: 44rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: inherit;
+  padding: 22px;
+  width: 100%;
+ 
+}
+.inicio-lab-hepa{
+  width: 100%;
+  height: 44rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: inherit;
+  padding: 22px;
+  width: 100%;
+ 
+}
+.inicio-lab-trio{
+  width: 100%;
+  height: 44rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: inherit;
+  padding: 22px;
+  width: 100%;
+ 
+}
 .ejemplo2 {
     width: 88%;
     height: 4rem;
@@ -436,7 +481,7 @@ progress {
     justify-content: space-between;
     border-bottom: solid;
     border-bottom-width: thin;
-    border-bottom-color: blue;
+    border-bottom-color: rgb(22, 110, 243);
     align-items: inherit;
 }
           
@@ -467,6 +512,12 @@ progress {
   justify-content: space-between;
  
   align-items: inherit;
+}
+.ejemplo-sinbuton-final {
+  width: 88%;
+  height: 4rem;
+  display: flex;
+  justify-content: flex-end;
 }
 .ejemplobig{
   width: 50%;
@@ -579,10 +630,33 @@ h6,
   line-height: 1.5;
 }
 
+
 .display-4 {
   font-size: 1.6275rem;
   font-weight: 600;
   line-height: 1.5;
+}
+.titulos-result6{
+  font-size: 1.6275rem;
+  font-weight: 600;
+  line-height: 1.5;
+  width: 11%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 34px;
+  justify-content: flex-end;
+  
+}
+.titulos-result{
+  font-size: 1.6275rem;
+  font-weight: 600;
+  line-height: 1.5;
+  width: 33%;
+  height: 50px;
+  display: flex;
+  align-items:  center;
+  
 }
 
 hr {
@@ -2204,6 +2278,24 @@ pre code {
   border-radius: 0.25rem;
   box-shadow: none;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.examenes-dia-large{
+  display: flex;
+  width: 55%;
+  height: calc(1.5em + 1.25rem + 2px);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #8898aa;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #cad1d7;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  justify-content: center;
+
 }
 
 @media (prefers-reduced-motion: reduce) {
