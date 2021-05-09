@@ -106,17 +106,14 @@ Coded by www.creative-tim.com
                  
                 </div>
                 <form role="form">
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-3">
+                  <div class="form-group focused">
+                    <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Name" type="text">
+                      <input id="cedulaAdministrador" class="form-control" placeholder="Password" type="password">
                     </div>
                   </div>
-                  
-                  
-                 
                   <div class="row my-4">
                     <div class="col-12">
                       <div class="custom-control custom-control-alternative custom-checkbox">
@@ -126,7 +123,7 @@ Coded by www.creative-tim.com
                     </div>
                   </div>
                   <div class="text-center">
-                    <a href="./AdministrativoInicio.html"  class="btn btn-primary mt-4">INGRESAR</a>
+                    <button id="botonAdmin" class="btn btn-primary mt-4" onclick="loginAdmin()">INGRESAR</button>
                   </div>
                 </form>
               </div>
@@ -185,29 +182,7 @@ Coded by www.creative-tim.com
     </footer>
   </div>
   <!--   Core JS Files   -->
-  <script src="./js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="./js/core/popper.min.js" type="text/javascript"></script>
-  <script src="./js/core/bootstrap.min.js" type="text/javascript"></script>
-  <script src="./js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-  <script src="./js/plugins/bootstrap-switch.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="./js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <script src="./js/plugins/moment.min.js"></script>
-  <script src="./js/plugins/datetimepicker.js" type="text/javascript"></script>
-  <script src="./js/plugins/bootstrap-datepicker.min.js"></script>
-  <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <script src="./js/argon-design-system.min.js?v=1.2.2" type="text/javascript"></script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "argon-design-system-pro"
-      });
-  </script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
