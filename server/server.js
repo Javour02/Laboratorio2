@@ -30,6 +30,18 @@ app.post('/obtenerExamenesVacios', (req, res)=>{
     laboratorio.examenesVacios(con, res);
 });
 
+app.post('/buscarExamenFecha', (req,res)=>{
+    laboratorio.examenesFechaLab(con, req, res);
+});
+
+app.post('/filtrarCedula', (req,res)=>{
+    laboratorio.filtrarCedula(con, req, res);
+});
+
+app.post('/filtrarTipo', (req,res)=>{
+    laboratorio.filtrarTipo(con, req, res);
+});
+
 app.listen(app.get('port'), ()=>{
     console.log(`server listening to port ${app.get('port')}`);
 });
