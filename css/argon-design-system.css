@@ -384,17 +384,15 @@ progress {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    width: 42REM;
+    width: 65%;
     padding: 0.625rem 0.75rem;
     font-size: 0.875rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 0;
     color: #8898aa;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #cad1d7;
-    border-radius: 0.25rem;
- 
+  height: 45px;
     
 
 }
@@ -403,30 +401,94 @@ progress {
   display: flex;
   justify-content: space-around;
 }
+.mi-input{
+  display: block;
+  width: 65%;
+  height: calc(1.5em + 1.25rem + 2px);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #8898aa;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #cad1d7;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
 .ejemplo{
   width: 100%;
   height: 53rem;
   display: flex;
-  background-color: rgb(255, 255, 255);
   align-items: center;
   flex-direction: column;
   position: inherit;
-  padding: 22px;isplay: block;
+  padding: 22px;
   width: 100%;
  
 }
 .ejemplo2 {
-    width: 70%;
+    width: 88%;
     height: 4rem;
-    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-bottom-color: blue;
+    align-items: inherit;
+}
+          
+          
+.ejemplo7{
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+ 
+  align-items: inherit;
+
+}
+          
+.ejemplo9{
+  width: 50%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-around;
+ 
+  align-items: inherit;
+
+}
+.ejemplo-sinbuton {
+  width: 88%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+ 
+  align-items: inherit;
 }
 .ejemplobig{
   width: 50%;
   height: 150px;
   background-color: rgb(3, 19, 240);
 
+}
+.ejemplo-selectdate{
+  box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%);
+  border: 0;
+  transition: box-shadow .15s ease;
+  border-radius: 0.25rem;
+  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 22rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #8898aa;
+  height: 50px;
 }
 output {
   display: inline-block;
@@ -4093,7 +4155,7 @@ input[type="button"].btn-block {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  width: 42REM;
+  width: 60REM;
 }
 
 .input-group>.form-control,
