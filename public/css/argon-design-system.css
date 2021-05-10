@@ -433,7 +433,7 @@ progress {
 .inicio-lab-hemograma{
   width: 100%;
   height: 44rem;
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: column;
   position: inherit;
@@ -444,7 +444,7 @@ progress {
 .inicio-lab-lipi{
   width: 100%;
   height: 44rem;
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: column;
   position: inherit;
@@ -455,7 +455,7 @@ progress {
 .inicio-lab-hepa{
   width: 100%;
   height: 44rem;
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: column;
   position: inherit;
@@ -466,7 +466,7 @@ progress {
 .inicio-lab-trio{
   width: 100%;
   height: 44rem;
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: column;
   position: inherit;

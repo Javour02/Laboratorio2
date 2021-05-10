@@ -14,15 +14,16 @@ exports.ingreso = (con,req,res)=>{
 }
 
 exports.examenesVacios = (con, res)=>{
-    let query = `SELECT p.nombres as nombrePaciente, t.nombre as nombreTipo from examen e
+    let query = `SELECT e.idExamen, CONCAT(p.nombres, ' ', p.apellidos) as nombrePaciente, t.nombre as nombreTipo from examen e
     JOIN pacientes p USING(idPaciente)
     JOIN tipo t USING(idTipo)
     WHERE json_resultados IS NULL`;
     con.query(query, (err, result)=>{
         if (err) throw err;
         var resultado = '<table><tr>'
+        if(JSON.stringify(result)!=='[]'){
         JSON.parse(JSON.stringify(result[0]),(k,v)=>{
-            if(k !== ''){
+            if(k !== '' && k!== 'idExamen'){
                 resultado += `<th>${k}</th>`;
             }
         });
@@ -30,14 +31,15 @@ exports.examenesVacios = (con, res)=>{
         for(index in result){
             resultado+='<tr>'
             JSON.parse(JSON.stringify(result[index]), (k,v)=>{
-                if(k !== ""){
-                    resultado+=`<td  class="table-data">${v}</td>`;
+                if(k !== "" && k!== 'idExamen'){
+                    resultado+=`<td id='dato${index}' class="table-data">${v}</td>`;
                 }
             });
-            resultado+='<td><button class="btn btn-primary">EDITAR</button></td></tr>'
+            resultado+= `<td><button id='${index}' value="${result[index].idExamen}" class="btn btn-primary" onclick="ingresarResultado(${index})">EDITAR</button></td></tr>`;
         }
         resultado += '</table>'
         res.send(resultado);
+        }
     });
 }
 
@@ -141,5 +143,16 @@ exports.filtrarTipo = (con,req,res)=>{
             respuesta+='</tr></table>';
         }
         res.send(respuesta);
+    })
+}
+
+exports.agregarResultado = (con, req, res)=>{
+    con.query(`SELECT idPersonal from personal WHERE cedula = '${cedulaLab}'`, (err, result)=>{
+        if(err) throw err;
+        let query = `UPDATE examen SET fecha_final = CURDATE(), json_resultados = '${JSON.stringify(req.body)}', idPersonal = ${result[0].idPersonal} where idExamen = ${req.examen}`;
+        con.query(query, (err, result)=>{
+            if(err) throw err;
+            res.send('success');
+        });
     })
 }

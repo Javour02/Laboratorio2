@@ -103,12 +103,9 @@
 
         </div>
         <div class="ejemplo2">
-        
-              <input class="mi-input" placeholder="Ingrese la cédula del apciente a consultar aquí" type="text">
-         
-        
+              <input id="cedula" class="mi-input" placeholder="Ingrese la cédula del paciente a consultar aquí" type="text">
+              <button id="buscarCedula" class="btn btn-primary mt-4" onclick='buscarPorCedula()'>BUSCAR</button>
         <input type="text" placeholder="" id="examenes-pacientes" class="form-control form-control-alternative">
-
         </div>
         <div class="ejemplo-sinbuton ">
           <p class="lead"> Cantidad de examenes realizados por tipo</p>
@@ -116,24 +113,19 @@
 
         </div>
         <div class="ejemplo2">
-          <select class="ejemplo-select" name="choice">
-            <option  id="Hemograma-completo" class="ejemplo-select"  value="first">Hemograma completo</option>
-            <option id="Perfil-lipidico" value="second" selected>Perfil lipidíco</option>
-            <option id="Perfil-hepatico" value="third">Perfil hepático</option>
-            <option id="Perfil-tiroide" value="fourth">Perfil tiroide</option>
+          <select id="tipo" class="ejemplo-select" name="choice" onchange="buscarPorTipo()">
+            <option></option>
+            <option value="Hemograma" class="ejemplo-select">Hemograma completo</option>
+            <option value="Perfil lipidico">Perfil lipídico</option>
+            <option value="Perfil hepatico">Perfil hepático</option>
+            <option value="Perfil tiroideo">Perfil tiroideo</option>  
           </select>
-        
-        
-          
         <input type="text" placeholder="" id="ingresos-tipo" class="form-control form-control-alternative">
 
         </div>
 
       </div>
-     
-      
-      
-
+     <script src="./js/administrador.js"></script>
 </body>
 
 </html>
