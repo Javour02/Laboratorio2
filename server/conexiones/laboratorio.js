@@ -47,8 +47,9 @@ exports.examenesFechaLab = (con, req, res)=>{
     let query = `SELECT idPersonal from personal where cedula = '${cedulaLab}'`;
     con.query(query, (err, result)=>{
         console.log(result[0].idPersonal);
-        let query2 = `SELECT CONCAT(p.nombres,' ', p.apellidos) as nombrePaciente, e.fecha_final, e.json_resultados from examen e
+        let query2 = `SELECT CONCAT(p.nombres,' ', p.apellidos) as nombrePaciente, CONCAT(Year(e.fecha_final),'-', Month(e.fecha_final),'-', Day(e.fecha_final)) as fechaFinal, t.nombre as tipoExamen, e.json_resultados from examen e
         JOIN pacientes p USING(idPaciente)
+        JOIN tipo t USING(idTipo)
          where fecha_final = '${req.body.fecha}' AND idPersonal = ${result[0].idPersonal}`;
         con.query(query2, (err, result)=>{
             let respuesta = '';
@@ -79,7 +80,7 @@ exports.examenesFechaLab = (con, req, res)=>{
 }
 
 exports.filtrarCedula = (con,req,res)=>{
-    let query = `SELECT e.fecha_inicio as fechaInicial, e.fecha_final as fechaFinal, t.nombre as nombreExamen,  e.json_resultados as resultados  from examen e 
+    let query = `SELECT CONCAT(Year(e.fecha_inicio),'-', Month(e.fecha_inicio),'-', Day(e.fecha_inicio)) as fechaInicio, CONCAT(Year(e.fecha_final),'-', Month(e.fecha_final),'-', Day(e.fecha_final)) as fechaFinal, t.nombre as nombreExamen,  e.json_resultados as resultados  from examen e 
     JOIN pacientes p USING(idPaciente)
     JOIN tipo t USING(idTipo)
     WHERE p.cedula = '${req.body.cedula}'`;
@@ -113,7 +114,7 @@ exports.filtrarCedula = (con,req,res)=>{
 }
 
 exports.filtrarTipo = (con,req,res)=>{
-    let query = `SELECT CONCAT(p.nombres, ' ', p.apellidos) as nombreCompleto, e.fecha_inicio as fechaInicial, e.fecha_final as fechaFinal, t.nombre as nombreExamen,  e.json_resultados as resultados  from examen e 
+    let query = `SELECT CONCAT(p.nombres, ' ', p.apellidos) as nombreCompleto, CONCAT(Year(e.fecha_inicio),'-', Month(e.fecha_inicio),'-', Day(e.fecha_inicio)) as fechaInicio, CONCAT(Year(e.fecha_final),'-', Month(e.fecha_final),'-', Day(e.fecha_final)) as fechaFinal, t.nombre as nombreExamen,  e.json_resultados as resultados  from examen e 
     JOIN pacientes p USING(idPaciente)
     JOIN tipo t USING(idTipo)
     WHERE t.nombre = '${req.body.tipo}'`;
