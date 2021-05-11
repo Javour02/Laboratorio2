@@ -87,6 +87,18 @@ app.post('/agendar', (req, res)=>{
     personal.agendarExamen(con, req, res);
 });
 
+app.post('/crearPaciente', (req, res)=>{
+    personal.crearPaciente(con, req, res);
+});
+
+app.post('/actualizarPaciente', (req, res)=>{
+    personal.actualizarPaciente(con, req, res);
+});
+
+app.post('/pedirCedula', (req,res)=>{
+    personal.pedirCedula(con,req,res);
+});
+
 app.listen(app.get('port'), ()=>{
     console.log(`server listening to port ${app.get('port')}`);
 });

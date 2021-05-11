@@ -520,20 +520,22 @@ progress {
 
 .tabla {    
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-   font-size: 12px;  
-   margin: 45px;    
-   width: 700px; 
-   text-align: left;  
-   border-collapse: collapse; }
+    font-size: 12px;
+    margin: 45px;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse; }
 
-.table-header {    
-  font-size: 13px;  
-   font-weight: normal;   
-   padding: 8px;   
-   background: #beb9fe;
-   border-top: 4px solid #b7aafe; 
-   border-bottom: 1px solid #fff; 
-   color: rgb(7, 13, 100); }
+.table-header {   
+  text-align: center; 
+  font-size: 15px;
+    font-weight: normal;
+    padding: 9px;
+    width: 10%;
+    background: #cbd7f9;
+    border-top: 2px solid #324cdd;
+    border-bottom: 1px solid #fff;
+    color: rgb(17 52 215) }
 
    .topcito{
      position: inherit;
@@ -542,15 +544,27 @@ progress {
    }
 
 .table-data{    
- padding: 8px;     
- background: #eae8ff;     
- border-bottom: 1px solid #fff;
- color: rgb(103, 102, 153);    
- border-top: 1px solid transparent; }
-
+  padding: 8px;
+  font-size: small;
+  background: #eae8ff;
+  border-bottom: 1px solid #fff;
+  color: rgb(103, 102, 153);
+  border-top: 1px solid transparent;
+  text-align: center;
+}
+.text-center{
+  display: flex;
+    justify-content: center;
+}
 .table-data:hover td { 
  background: #d0dafd; 
  color: rgb(74, 63, 168); }
+ .ejemplox{
+   width:100%;
+   height: 50rem;
+  display: flex;
+  justify-content: space-around;
+ }
 
 .ejemplo9{
   width: 50%;

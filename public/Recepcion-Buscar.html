@@ -82,7 +82,7 @@
               <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
             </div>
             <input class="form-control" id="cedula-consultar-paciente" placeholder="Ingresa la cedula del paciente a consultar" type="text">
-            <button type="button" class="btn btn-primary" onclick="filtrar()">Buscar</button>
+            <button type="button" class="btn btn-primary" onclick="pedirCedula()">Buscar</button>
           </div>
           <div id="resultados"></div>
       </div>
@@ -98,20 +98,16 @@
             <span></span>
           </div>
 
-          <div class="ejemplo">
+          <div id="div-paciente-registrado" class="ejemplo">
             <p class="lead">El usuario ya esta registrado, puede realizar las siguientes acciones:</p>
             <div class="form-group">
-              
-                
-                <button type="button" class="btn btn-primary" onclick="filtrar()">Editar mis datos</button>
-                <a class="btn btn-outline-primary" href="./Recepcion-agendar.html"  target="_blank">
-                  <span class="nav-link-inner--text">Agendar examen</span>
-                </a>
-              
+                <button type="button" class="btn btn-primary" onclick="activarEdicionDeDatos()">Editar mis datos</button>
+                <button id="agendarExamenCreacion1" class="btn btn-primary " onclick="cambiarPestaña()">Agendar examen</button>
+            </div>
           </div>
 
 
-        <div class="topcito">  
+        <div id="formulario-con-todo" class="topcito">  
           <div class="container pt-lg-7">
             <div class="row justify-content-center">
               <div class="col-lg-5">
@@ -169,7 +165,9 @@
                        
                       </div>
                       <div class="text-center">
-                        <input  class="btn btn-primary mt-4" type="submit" value="">
+                        <input  id="enviarFormularioCreacion" class="btn btn-primary mt-4" type="submit" value="Crear Paciente">
+                        <input  id="agendarExamenCreacion2" type="submit" class="btn btn-primary mt-4" onclick="cambiarPestaña()" value="Agendar Examen">
+                        <input  id="enviarFormularioActualizacion" class="btn btn-primary mt-4" type="submit" onclick="actualizarPaciente()" value="Actualizar Paciente">
                       </div>
                     </form>
                   </div>
@@ -178,6 +176,7 @@
             </div>
           </div>
         </div>
+      <script src="./js/pedirCedula.js"></script>
 </body>
 
 </html>

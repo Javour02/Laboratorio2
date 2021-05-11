@@ -85,33 +85,41 @@
             <span></span>
             <span></span>
           </div>
-          <div class="ejemplooo">
-            <h2 class="display-3"> Agenda una cita </h2>
-            <label for="tipos">
-                <p class="lead">Escoja un tipo de examen</p>
-            </label>
-              <select id="tipo" class="ejemplo-select" name="tipos" onChange="changeTipo()">
-                <option value=""></option>
-                <option value="Hemograma">Hemograma completo</option>
-                <option value="Perfil lipidico">Perfil lipídico</option>
-                <option value="Perfil hepatico">Perfil hepático</option>
-                <option value="Perfil tiroideo">Perfil tiroideo</option>
-              </select>
-              <div id="respuesta-Tipo">
-    
-              </div>
-              <p class="lead">Escoja la fecha para realizar el examen</p>
+          <div class="ejemplox">
+            <div class="ejemplooo">
+              <h2 class="display-3"> Agenda una cita </h2>
+              <label for="tipos">
+                  <p class="lead">Escoja un tipo de examen</p>
+              </label>
+                <select id="tipo" class="ejemplo-select" name="tipos" onChange="changeTipo()">
+                  <option value=""></option>
+                  <option value="Hemograma">Hemograma completo</option>
+                  <option value="Perfil lipidico">Perfil lipídico</option>
+                  <option value="Perfil hepatico">Perfil hepático</option>
+                  <option value="Perfil tiroideo">Perfil tiroideo</option>
+                </select>
+                <p class="lead">Escoja la fecha para realizar el examen</p>
 
-            <input id="fecha-cita" class="ejemplo-selectdate" type="date">
-            <div clas="botonis">
-                <button type="button" onclick="agendarExamen()" class="btn btn-outline-primary" style="
-                position: inherit;
-                margin-top: 44px;
-            ">Agendar</button>
-            </div>
+              <input id="fecha-cita" class="ejemplo-selectdate" type="date">
+              <div clas="botonis">
+                  <button type="button" onclick="agendarExamen()" class="btn btn-outline-primary" style="
+                  position: inherit;
+                  margin-top: 44px;">Agendar</button>
+              </div>
             
           </div>
 
+          <div id="respuesta-Tipo" style="
+          position: inherit;
+          margin-right: 60px;
+          margin-top: 144px;
+      ">
+    
+          </div>
+          </div>
+
+          
+          <script src="./js/agendarExamen.js"></script>
 </body>
 
 </html>

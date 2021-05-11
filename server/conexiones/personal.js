@@ -1,3 +1,5 @@
+var cedulaPaciente = '';
+
 
 exports.ingreso = (con,req,res)=>{
     let query = `SELECT count(*) as cuenta from personal where cedula = '${req.body.cedula}' AND tipo = ${req.body.numero}`;
@@ -19,13 +21,13 @@ exports.recepcion = (con,res)=>{
     con.query(query, (err, result)=>{
         let resultado = '';
         console.log(JSON.stringify(result));
-        resultado+='<table><tr>'
+        resultado+='<table class="tabla"><tr>'
         JSON.parse(JSON.stringify(result[0]),(k,v)=>{
             if(k !== '' && k!== 'idExamen'){
-                resultado += `<th>${k}</th>`;
+                resultado += `<th class="table-header">${k}</th>`;
             }
         });
-        resultado += `<th>Asistencia</th></tr>`;
+        resultado += `<th class="table-header">Asistencia</th></tr>`;
         for(index in result){
             resultado+='<tr>'
             JSON.parse(JSON.stringify(result[index]), (k,v)=>{
@@ -33,7 +35,7 @@ exports.recepcion = (con,res)=>{
                     resultado+=`<td id='dato${index}' class="table-data">${v}</td>`;
                 }
             });
-            resultado+= `<td><input type="checkbox"></td></tr>`;
+            resultado+= `<td class="table-data"><input type="checkbox"></td></tr>`;
         }
         resultado += '</table>'
         res.send(resultado);
@@ -107,16 +109,16 @@ exports.verDetallesExamen = (con, req, res)=>{
     let query = `SELECT descripcion, recomendaciones, costo, tiempo_aprox from tipo where nombre = '${req.body.tipo}'`;
     con.query(query, (err, result)=>{
         if(err) throw err;
-        let resultado = '<table><tr>'
+        let resultado = '<table class="tabla"><tr>'
         JSON.parse(JSON.stringify(result[0]), function(k, v){
             if(k!==""){
-                resultado+=`<th>${k}</th>`;
+                resultado+=`<th class="table-header">${k}</th>`;
             }
         });
         resultado+="</tr><tr>"
         JSON.parse(JSON.stringify(result[0]), function(k, v){
             if(k!==""){
-                resultado+=`<td>${v}</td>`;
+                resultado+=`<td class="table-data">${v}</td>`;
             }
         });
         resultado+="</tr></table>";
@@ -126,7 +128,7 @@ exports.verDetallesExamen = (con, req, res)=>{
 
 exports.agendarExamen = (con, req, res)=>{
     let queryIdTipo = `SELECT idTipo from tipo where nombre = '${req.body.tipo}'`;
-    let queryIdPaciente = `SELECT idPaciente from pacientes where cedula = '${cedulaLogged}'`;
+    let queryIdPaciente = `SELECT idPaciente from pacientes where cedula = '${cedulaPaciente}'`;
     con.query(queryIdTipo, (err, result)=>{
         if(err) throw err;
         let idTipo = result[0].idTipo;
@@ -139,5 +141,33 @@ exports.agendarExamen = (con, req, res)=>{
                 res.send('success');
             });
         });
+    });
+}
+
+exports.pedirCedula = (con, req, res)=>{
+    cedulaPaciente = req.body.cedula;
+    let query = `SELECT nombres, apellidos, correo, eps, cedula from pacientes where cedula = '${cedulaPaciente}' `;
+    con.query(query, (err,result)=>{
+        if(err) throw err;
+        res.send(JSON.stringify(result[0]));
+    });
+}
+
+exports.crearPaciente = (con, req, res)=>{
+    var info = req.body;
+    let process = `INSERT INTO pacientes (nombres, apellidos, cedula, correo, eps, clave) VALUES ('${info.nombre}','${info.apellido}','${info.cedula}','${info.correo}','${info.eps}','${info.clave}')`;
+    con.query(process, (err, result) => {
+        if (err) throw err;
+        cedulaPaciente = info.cedula;
+        res.send('success');
+    })
+}
+
+exports.actualizarPaciente = (con,req,res)=>{
+    let info = req.body;
+    con.query(`UPDATE pacientes set nombres = '${info.nombre}', apellidos = '${info.apellido}', correo = '${info.correo}', eps = '${info.eps}', cedula = '${info.cedula}' where cedula = '${cedulaPaciente}'`,
+    (err,result)=>{
+        if(err) throw err;
+        res.send('success');
     });
 }

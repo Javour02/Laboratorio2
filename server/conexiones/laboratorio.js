@@ -20,14 +20,14 @@ exports.examenesVacios = (con, res)=>{
     WHERE json_resultados IS NULL`;
     con.query(query, (err, result)=>{
         if (err) throw err;
-        var resultado = '<table><tr>'
+        var resultado = '<table class="tabla"><tr>'
         if(JSON.stringify(result)!=='[]'){
         JSON.parse(JSON.stringify(result[0]),(k,v)=>{
             if(k !== '' && k!== 'idExamen'){
-                resultado += `<th>${k}</th>`;
+                resultado += `<th class="table-header">${k}</th>`;
             }
         });
-        resultado += `<th>Ingresar Resultado</th></tr>`;
+        resultado += `<th class="table-header">Ingresar Resultado</th></tr>`;
         for(index in result){
             resultado+='<tr>'
             JSON.parse(JSON.stringify(result[index]), (k,v)=>{
@@ -35,7 +35,7 @@ exports.examenesVacios = (con, res)=>{
                     resultado+=`<td id='dato${index}' class="table-data">${v}</td>`;
                 }
             });
-            resultado+= `<td><button id='${index}' value="${result[index].idExamen}" class="btn btn-primary" onclick="ingresarResultado(${index})">EDITAR</button></td></tr>`;
+            resultado+= `<td class="table-data"><button id='${index}' value="${result[index].idExamen}" class="btn btn-outline-primary btn-round" onclick="ingresarResultado(${index})">Editar</button></td></tr>`;
         }
         resultado += '</table>'
         res.send(resultado);
