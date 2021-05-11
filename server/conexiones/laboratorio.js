@@ -50,7 +50,7 @@ exports.examenesFechaLab = (con, req, res)=>{
         let query2 = `SELECT CONCAT(p.nombres,' ', p.apellidos) as nombrePaciente, CONCAT(Year(e.fecha_final),'-', Month(e.fecha_final),'-', Day(e.fecha_final)) as fechaFinal, t.nombre as tipoExamen, e.json_resultados from examen e
         JOIN pacientes p USING(idPaciente)
         JOIN tipo t USING(idTipo)
-         where fecha_final = '${req.body.fecha}' AND idPersonal = ${result[0].idPersonal}`;
+        where fecha_final = '${req.body.fecha}' AND idPersonal = ${result[0].idPersonal}`;
         con.query(query2, (err, result)=>{
             let respuesta = '';
             console.log( JSON.stringify(result));

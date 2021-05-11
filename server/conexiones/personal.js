@@ -1,4 +1,3 @@
-const { json } = require("express");
 
 exports.ingreso = (con,req,res)=>{
     let query = `SELECT count(*) as cuenta from personal where cedula = '${req.body.cedula}' AND tipo = ${req.body.numero}`;
@@ -101,5 +100,44 @@ exports.filtrarTipoAdmin = (con, req, res)=>{
     con.query(query, (err, result)=>{
         if(err) throw err;
         res.send(JSON.stringify(result[0].cuentaCedula));
+    });
+}
+
+exports.verDetallesExamen = (con, req, res)=>{
+    let query = `SELECT descripcion, recomendaciones, costo, tiempo_aprox from tipo where nombre = '${req.body.tipo}'`;
+    con.query(query, (err, result)=>{
+        if(err) throw err;
+        let resultado = '<table><tr>'
+        JSON.parse(JSON.stringify(result[0]), function(k, v){
+            if(k!==""){
+                resultado+=`<th>${k}</th>`;
+            }
+        });
+        resultado+="</tr><tr>"
+        JSON.parse(JSON.stringify(result[0]), function(k, v){
+            if(k!==""){
+                resultado+=`<td>${v}</td>`;
+            }
+        });
+        resultado+="</tr></table>";
+        res.send(resultado);
+    });
+}
+
+exports.agendarExamen = (con, req, res)=>{
+    let queryIdTipo = `SELECT idTipo from tipo where nombre = '${req.body.tipo}'`;
+    let queryIdPaciente = `SELECT idPaciente from pacientes where cedula = '${cedulaLogged}'`;
+    con.query(queryIdTipo, (err, result)=>{
+        if(err) throw err;
+        let idTipo = result[0].idTipo;
+        con.query(queryIdPaciente, (err, result)=>{
+            if(err) throw err;
+            let idPaciente = result[0].idPaciente;
+            let queryAgendar = `INSERT INTO examen (fecha_inicio, fecha_cita, idPaciente, idTipo) VALUES (CURDATE(),'${req.body.fecha}', ${idPaciente}, ${idTipo})`;
+            con.query(queryAgendar, (err, result)=>{
+                if (err) throw err;
+                res.send('success');
+            });
+        });
     });
 }

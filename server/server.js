@@ -78,6 +78,15 @@ app.post('/filtrarTipoAdmin', (req, res)=>{
     personal.filtrarTipoAdmin(con,req,res);
 });
 
+
+app.post('/mostrarInfoTipo', (req,res)=>{
+    personal.verDetallesExamen(con, req, res);
+});
+
+app.post('/agendar', (req, res)=>{
+    personal.agendarExamen(con, req, res);
+});
+
 app.listen(app.get('port'), ()=>{
     console.log(`server listening to port ${app.get('port')}`);
 });
