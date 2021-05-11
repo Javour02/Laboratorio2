@@ -37,13 +37,15 @@
               </div>
             </div>
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-              <li class="nav-item dropdown">
-                <a href="./RecepcionInicio.html" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                  <i class="ni ni-ui-04 d-lg-none"></i>
-                  <span class="nav-link-inner--text">Panel principal</span>
-                </a>
-                
-              </li> 
+
+                <li class="nav-item dropdown">
+                    <a href="./RecepcionInicio.html" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                      <i class="ni ni-ui-04 d-lg-none"></i>
+                      <span class="nav-link-inner--text">Panel principal</span>
+                    </a>
+                    
+                  </li> 
+
               <li class="nav-item dropdown">
                 <a href="./Recepcion-Buscar.html" class="nav-link" data-toggle="dropdown" href="#" role="button">
                   <i class="ni ni-ui-04 d-lg-none"></i>
@@ -71,11 +73,45 @@
           </div>
         </div>
       </nav>
-      <div class="ejemplo">
-        <h2 class="display-3"> Recepcion </h2>
-        <div id="respuesta"></div>
-      </div>
-     <script src="./js/recepcion.js"></script>
+     
+
+          <div class="shape shape-style-1 bg-gradient-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="ejemplooo">
+            <h2 class="display-3"> Agenda una cita </h2>
+            <label for="tipos">
+                <p class="lead">Escoja un tipo de examen</p>
+            </label>
+              <select id="tipo" class="ejemplo-select" name="tipos" onChange="changeTipo()">
+                <option value=""></option>
+                <option value="Hemograma">Hemograma completo</option>
+                <option value="Perfil lipidico">Perfil lipídico</option>
+                <option value="Perfil hepatico">Perfil hepático</option>
+                <option value="Perfil tiroideo">Perfil tiroideo</option>
+              </select>
+              <div id="respuesta-Tipo">
+    
+              </div>
+              <p class="lead">Escoja la fecha para realizar el examen</p>
+
+            <input id="fecha-cita" class="ejemplo-selectdate" type="date">
+            <div clas="botonis">
+                <button type="button" onclick="agendarExamen()" class="btn btn-outline-primary" style="
+                position: inherit;
+                margin-top: 44px;
+            ">Agendar</button>
+            </div>
+            
+          </div>
+
 </body>
 
 </html>
